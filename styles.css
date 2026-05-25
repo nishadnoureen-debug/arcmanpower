@@ -162,7 +162,7 @@ section {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   margin-bottom: 1.5rem;
   position: relative;
 }
@@ -214,19 +214,19 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.8rem 0;
+  padding: 0.95rem 0;
   z-index: 100;
   transition: var(--transition-smooth);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 header.scrolled {
-  padding: 1rem 0;
-  background-color: rgba(10, 17, 40, 0.85);
+  padding: 0.65rem 0;
+  background-color: rgba(10, 17, 40, 0.85); box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 header .container {
@@ -241,7 +241,7 @@ header .container {
   align-items: center;
   gap: 0.6rem;
   font-family: 'Outfit', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: -0.5px;
   color: var(--text-light);
@@ -252,8 +252,9 @@ header .container {
 }
 
 .logo-img {
-  width: 45px;
+  width: 44px;
   height: auto;
+  display: block;
 }
 
 /* Navigation Links */
@@ -266,7 +267,7 @@ header .container {
 .nav-link {
   font-family: 'Outfit', sans-serif;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.8);
   position: relative;
   padding: 0.3rem 0;
@@ -427,7 +428,7 @@ header .container {
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 2.8rem;
   font-weight: 800;
   color: var(--text-light);
   max-width: 750px;
@@ -826,7 +827,7 @@ header .container {
 
 .welfare-content h2 {
   color: var(--text-light);
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   margin-bottom: 1.5rem;
 }
 
@@ -1623,7 +1624,10 @@ footer {
   }
   
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
+  }
+  .section-title {
+    font-size: 1.6rem;
   }
   
   .stats-grid {
@@ -1680,7 +1684,7 @@ footer {
   }
   
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
   
   .hero p {
