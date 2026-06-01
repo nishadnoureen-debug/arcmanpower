@@ -1588,152 +1588,697 @@ footer {
   opacity: 1;
 }
 
-/* Responsive Grid Adaptation & Breakpoints */
+/* ============================================================
+   RESPONSIVE BREAKPOINTS — Full Device Coverage
+   1200px  Laptop / Large Tablet Landscape
+   1024px  Tablet Landscape
+   768px   Tablet Portrait
+   480px   Large Phone
+   360px   Small Phone
+   ============================================================ */
+
+/* ---------- 1200px and below ---------- */
+@media (max-width: 1200px) {
+  .container {
+    width: 92%;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+    max-width: 640px;
+  }
+
+  .about-grid {
+    gap: 3rem;
+  }
+
+  .welfare-grid {
+    gap: 3.5rem;
+  }
+
+  .welfare-card-overlay {
+    right: -1rem;
+    top: -1rem;
+  }
+}
+
+/* ---------- 1024px and below (Tablet Landscape) ---------- */
 @media (max-width: 1024px) {
   html {
     font-size: 15px;
   }
-  
-  .about-grid, .welfare-grid, .contact-grid {
+
+  .container {
+    width: 92%;
+  }
+
+  /* Grids: collapse to single column */
+  .about-grid,
+  .welfare-grid,
+  .contact-grid {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
   }
-  
-  .about-visual img, .welfare-img-wrapper img {
-    height: 400px;
+
+  /* Flip welfare so image comes first */
+  .welfare-visual {
+    order: -1;
   }
-  
+
+  .welfare-card-overlay {
+    right: 1rem;
+    top: 1rem;
+    max-width: 220px;
+  }
+
+  .about-visual img {
+    height: 380px;
+  }
+
+  .welfare-img-wrapper img {
+    height: 380px;
+  }
+
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
-  
+
+  .about-features {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
   }
-  
+
   .footer-col:first-of-type {
     grid-column: span 2;
   }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.8rem;
+  }
+
+  .contact-grid {
+    gap: 2.5rem;
+  }
+
+  .enquiry-form-card {
+    padding: 2.5rem 2rem;
+  }
+
+  /* Ticker: slightly smaller cards on tablet */
+  .ticker-slide {
+    width: 190px;
+    height: 100px;
+    margin: 0 8px;
+  }
+
+  .ticker-track {
+    width: calc(208px * 16);
+    animation: ticker-scroll-tablet 28s linear infinite;
+  }
+
+  @keyframes ticker-scroll-tablet {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(-208px * 8)); }
+  }
+
+  .ticker-slide img.ticker-logo {
+    max-width: 150px;
+    max-height: 70px;
+  }
 }
 
+/* ---------- 768px and below (Tablet Portrait / Large Phone) ---------- */
 @media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  /* Section spacing */
+  section {
+    padding: 5rem 0;
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  /* ---------- Navigation ---------- */
   .nav-menu {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 300px;
+    width: min(300px, 80vw);
     height: 100vh;
     background-color: var(--primary);
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
     transition: var(--transition-smooth);
     z-index: 100;
-    padding: 3rem;
+    padding: 3rem 2rem;
   }
-  
+
   .nav-menu.active {
     right: 0;
   }
-  
+
+  .nav-link {
+    font-size: 1.05rem;
+  }
+
   .mobile-toggle {
     display: block;
   }
-  
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 600px;
+  }
+
+  .hero-content-wrapper {
+    padding-top: 6rem;
+  }
+
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    max-width: 100%;
   }
+
+  .hero p {
+    font-size: 1rem;
+    max-width: 100%;
+    margin-bottom: 2.2rem;
+  }
+
+  .hero-buttons {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero-buttons .btn-premium {
+    flex: 1 1 auto;
+    min-width: 140px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .slider-nav {
+    bottom: 2rem;
+    left: 4%;
+    right: 4%;
+  }
+
+  .slider-arrows {
+    gap: 0.6rem;
+  }
+
+  .arrow {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  /* ---------- Section headings ---------- */
   .section-title {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
-  
+
+  .section-desc {
+    font-size: 1rem;
+  }
+
+  /* ---------- Stats ---------- */
+  .stats {
+    padding: 3.5rem 0;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
-  
+
   .stat-item:nth-child(2)::after {
     display: none;
   }
-  
+
+  .stat-item:nth-child(4)::after {
+    display: none;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  /* ---------- About ---------- */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-visual img {
+    height: 300px;
+  }
+
+  .about-badge {
+    padding: 1rem 1.5rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .about-badge-num {
+    font-size: 1.8rem;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  /* ---------- Services ---------- */
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  
+
+  .service-image-box {
+    height: 200px;
+  }
+
+  /* ---------- Welfare ---------- */
+  .welfare-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .welfare-visual {
+    order: -1;
+  }
+
+  .welfare-img-wrapper img {
+    height: 280px;
+  }
+
+  .welfare-card-overlay {
+    position: relative;
+    top: auto;
+    right: auto;
+    max-width: 100%;
+    margin-top: 1rem;
+    border-radius: 6px;
+  }
+
+  .welfare-content h2 {
+    font-size: 1.7rem;
+  }
+
+  /* ---------- Careers ---------- */
   .tab-nav {
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 0.6rem;
+    justify-content: center;
   }
-  
+
+  .tab-btn {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
   .job-card {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
-    padding: 1.8rem;
+    gap: 1.2rem;
+    padding: 1.5rem;
   }
-  
+
   .job-card .btn-premium {
     width: 100%;
+    text-align: center;
+    justify-content: center;
   }
-  
+
+  .job-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .job-meta {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  /* ---------- Brand Ticker ---------- */
+  .clients {
+    padding: 3rem 0;
+  }
+
+  .ticker-slide {
+    width: 160px;
+    height: 90px;
+    margin: 0 6px;
+  }
+
+  .ticker-track {
+    width: calc(172px * 16);
+    animation: ticker-scroll-mobile 22s linear infinite;
+  }
+
+  @keyframes ticker-scroll-mobile {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(-172px * 8)); }
+  }
+
+  .ticker-slide img.ticker-logo {
+    max-width: 120px;
+    max-height: 60px;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .enquiry-form-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .enquiry-form-card h3 {
+    font-size: 1.5rem;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
     gap: 0;
   }
-  
+
+  .contact-info-list {
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  /* ---------- Footer ---------- */
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
-  
+
   .footer-col:first-of-type {
     grid-column: span 1;
   }
-  
+
   .footer-bottom {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     text-align: center;
   }
-}
 
-@media (max-width: 480px) {
-  section {
-    padding: 4.5rem 0;
-  }
-  
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  
-  .hero p {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
   }
-  
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .stat-item::after {
-    display: none !important;
-  }
-  
-  .enquiry-form-card {
-    padding: 2.5rem 1.5rem;
-  }
-  
+
+  /* ---------- Modal ---------- */
   .modal-window {
     width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
   }
-  
+
   .modal-body {
     padding: 1.5rem;
   }
 }
+
+/* ---------- 480px and below (Large Phone) ---------- */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  .container {
+    width: 94%;
+  }
+
+  /* ---------- Header ---------- */
+  .logo {
+    font-size: 1.15rem;
+  }
+
+  .logo-img {
+    width: 36px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 560px;
+  }
+
+  .hero-content-wrapper {
+    padding-top: 5.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+    line-height: 1.25;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .hero-buttons .btn-premium {
+    width: 100%;
+  }
+
+  .hero-slide-num {
+    font-size: 0.95rem;
+  }
+
+  .slider-arrows {
+    display: none;
+  }
+
+  /* ---------- Headings ---------- */
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+  }
+
+  /* ---------- Stats ---------- */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  .stat-item::after {
+    display: none !important;
+  }
+
+  /* ---------- About ---------- */
+  .about-visual img {
+    height: 240px;
+  }
+
+  .about-badge {
+    padding: 0.8rem 1rem;
+  }
+
+  .about-badge-num {
+    font-size: 1.5rem;
+  }
+
+  /* ---------- Welfare ---------- */
+  .welfare-img-wrapper img {
+    height: 220px;
+  }
+
+  .welfare-list {
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  /* ---------- Services ---------- */
+  .service-image-box {
+    height: 180px;
+  }
+
+  .service-card-body {
+    padding: 1.5rem 1.2rem;
+  }
+
+  /* ---------- Careers ---------- */
+  .tab-nav {
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .job-card {
+    padding: 1.2rem;
+  }
+
+  /* ---------- Brand Ticker ---------- */
+  .ticker-slide {
+    width: 130px;
+    height: 80px;
+    margin: 0 5px;
+    border-radius: 6px;
+  }
+
+  .ticker-track {
+    width: calc(140px * 16);
+    animation: ticker-scroll-xs 18s linear infinite;
+  }
+
+  @keyframes ticker-scroll-xs {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(-140px * 8)); }
+  }
+
+  .ticker-slide img.ticker-logo {
+    max-width: 100px;
+    max-height: 50px;
+  }
+
+  /* ---------- Contact ---------- */
+  .enquiry-form-card {
+    padding: 1.8rem 1.2rem;
+    border-radius: 6px;
+  }
+
+  .contact-item {
+    gap: 0.8rem;
+  }
+
+  .contact-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer-grid {
+    gap: 2rem;
+  }
+
+  .footer-contact-item {
+    gap: 0.8rem;
+  }
+
+  /* ---------- Scroll-to-top button ---------- */
+  .scroll-top {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  /* ---------- Modal ---------- */
+  .modal-window {
+    width: 98%;
+  }
+
+  .modal-body {
+    padding: 1.2rem;
+  }
+}
+
+/* ---------- 360px and below (Small Phone) ---------- */
+@media (max-width: 360px) {
+  html {
+    font-size: 13px;
+  }
+
+  .container {
+    width: 96%;
+  }
+
+  .hero h1 {
+    font-size: 1.55rem;
+  }
+
+  .section-title {
+    font-size: 1.35rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-item::after {
+    display: none !important;
+  }
+
+  .ticker-slide {
+    width: 115px;
+    height: 72px;
+    margin: 0 4px;
+  }
+
+  .ticker-track {
+    width: calc(123px * 16);
+    animation: ticker-scroll-xxs 16s linear infinite;
+  }
+
+  @keyframes ticker-scroll-xxs {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(-123px * 8)); }
+  }
+
+  .ticker-slide img.ticker-logo {
+    max-width: 88px;
+    max-height: 44px;
+  }
+
+  .tab-btn {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  .btn-premium {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+
+
+  
+
