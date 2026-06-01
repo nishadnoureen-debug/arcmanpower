@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Elegant dark navy circle backing (matching your primary brand color) -->
+  <circle cx="64" cy="64" r="58" fill="#0A1128" />
+  
+  <!-- Centered logo image preserving original rectangular aspect ratio and adding padding -->
+  <image href="logo.png" x="20" y="36" width="88" height="56" preserveAspectRatio="xMidYMid meet" />
+</svg>
