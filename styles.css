@@ -1009,31 +1009,40 @@ header .container {
 }
 
 .ticker-slide {
-  width: 250px;
+  width: 230px;
+  height: 120px;
+  margin: 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 1;
-  transition: var(--transition-fast);
+  background-color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
 }
 
 .ticker-slide:hover {
-  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(56, 108, 152, 0.35);
+  box-shadow: 0 10px 25px rgba(56, 108, 152, 0.1);
+  transform: translateY(-5px);
 }
 
 .ticker-slide svg,
 .ticker-slide img.ticker-logo {
-  max-width: 220px;
-  max-height: 80px;
+  max-width: 190px;
+  max-height: 90px;
   width: auto;
   height: auto;
   object-fit: contain;
   filter: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ticker-slide:hover img.ticker-logo {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 /* Contact us Form / Let's Talk */
