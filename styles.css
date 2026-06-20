@@ -11,6 +11,7 @@
   --text-light-rgb: 244, 248, 250;  /* #F4F8FA - Frosted Ice White */
   
   --primary: rgb(var(--primary-rgb));
+  --primary-dark: #050b14;          /* Midnight black-navy for subpage heroes */
   --secondary: rgb(var(--secondary-rgb));
   --accent: rgb(var(--accent-rgb));
   --accent-light: rgb(var(--accent-light-rgb));
@@ -20,6 +21,12 @@
   --text-muted: rgba(var(--text-dark-rgb), 0.7);
   --bg-light: #ffffff;
   --bg-alternate: #F1F5F8;          /* Light steel-blue grey */
+  
+  /* Missing variables used on subpages like blogs.html */
+  --bg-primary: var(--bg-light);
+  --bg-card: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --text-primary: var(--text-dark);
   
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.2s ease;
@@ -2277,6 +2284,110 @@ footer {
     font-size: 0.85rem;
   }
 }
+
+/* ============================================================
+   TEAM GALLERY SECTION
+   ============================================================ */
+.team-gallery {
+  background-color: var(--bg-alternate);
+  position: relative;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.gallery-card {
+  background-color: var(--bg-light);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-premium);
+  transition: var(--transition-smooth);
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.gallery-img-box {
+  height: 440px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-info {
+  padding: 2.2rem 2rem;
+}
+
+.gallery-info h3 {
+  font-size: 1.45rem;
+  margin-bottom: 0.6rem;
+  color: var(--primary);
+}
+
+.gallery-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Hover Zoom & Elevation */
+.gallery-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(56, 108, 152, 0.25);
+}
+
+.gallery-card:hover .gallery-img-box img {
+  transform: scale(1.04);
+}
+
+/* Responsive configurations for gallery grid */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    gap: 2rem;
+  }
+  .gallery-img-box {
+    height: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .gallery-img-box {
+    height: 320px;
+  }
+  .gallery-info {
+    padding: 1.8rem 1.5rem;
+  }
+}
+
+/* ============================================================
+   SCROLL REVEAL MICRO-ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 
