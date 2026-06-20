@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description"
+    content="Arc Manpower Blogs — industry insights, manpower trends, workforce management tips, and UAE labor market news from the leading manpower supply company in the UAE." />
+  <meta name="keywords"
+    content="manpower blog uae, workforce trends dubai, labor market uae, recruitment insights, arc manpower news, workforce management tips" />
+  <meta name="author" content="Arc Manpower Group" />
+
+  <meta property="og:title" content="Blogs - Arc Manpower UAE" />
+  <meta property="og:description"
+    content="Industry insights, manpower trends, and workforce management tips from UAE's leading manpower supply company." />
+  <meta property="og:url" content="https://arcmanpower.ae/blogs.html" />
+  <meta property="og:type" content="website" />
+
+  <title>Blogs - Arc Manpower | UAE Workforce &amp; Manpower Industry Insights</title>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="logo.png" type="image/png">
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 10rem 0 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      opacity: 0.12;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 1rem; }
+    .page-hero p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb span { color: rgba(255,255,255,0.5); }
+
+    /* Blog Section */
+    .blogs-section {
+      padding: 5rem 0 6rem;
+      background: var(--bg-primary);
+    }
+    .blogs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .blog-card-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+    .blog-card-body {
+      padding: 1.6rem;
+    }
+    .blog-tag {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      background: rgba(255, 176, 0, 0.15);
+      color: var(--accent);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    .blog-card-body h3 {
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      margin-bottom: 0.7rem;
+      line-height: 1.5;
+    }
+    .blog-card-body p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .blog-meta span { display: flex; align-items: center; gap: 0.3rem; }
+    .blog-read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: gap 0.2s ease;
+    }
+    .blog-read-link:hover { gap: 0.7rem; }
+
+    /* Featured Blog */
+    .blog-featured {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      margin-bottom: 3rem;
+    }
+    .blog-featured-img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
+    }
+    .blog-featured-body {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .blog-featured-body .blog-tag { margin-bottom: 1.2rem; }
+    .blog-featured-body h2 {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .blog-featured-body p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
+
+    @media (max-width: 768px) {
+      .blog-featured { grid-template-columns: 1fr; }
+      .blog-featured-img { min-height: 220px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- FLOATING SCROLL TOP TRIGGER -->
+  <div class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </div>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Arc Manpower Logo" class="logo-img" />
+        ARC<span>MANPOWER</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">Who We Are</a>
+        <a href="sectors.html" class="nav-link">Sectors</a>
+        <a href="welfare.html" class="nav-link">Welfare &amp; HSE</a>
+        <a href="careers.html" class="nav-link">Careers</a>
+        <a href="blogs.html" class="nav-link active">Blogs</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="index.html#contact" class="btn-premium btn-primary"
+          style="padding: 0.6rem 1.4rem; font-size: 0.85rem; margin-left: 0.5rem;">Request Manpower</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span style="color: #fff;">Blogs</span>
+      </div>
+      <h1>Insights &amp; Industry News</h1>
+      <p>Stay informed with the latest trends in UAE manpower, workforce management, labor laws, and industry
+        developments from our expert team.</p>
+    </div>
+  </section>
+
+  <!-- BLOGS SECTION -->
+  <section class="blogs-section">
+    <div class="container">
+
+      <!-- Featured Blog -->
+      <div class="blog-featured">
+        <img
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80"
+          alt="UAE Construction Boom 2025"
+          class="blog-featured-img"
+        />
+        <div class="blog-featured-body">
+          <span class="blog-tag">Featured</span>
+          <h2>UAE Construction Boom 2025: How Manpower Demand Is Reshaping the Workforce Landscape</h2>
+          <p>With UAE's Vision 2031 mega-projects accelerating, the demand for skilled construction labor has
+            surged by over 35% in just the past 18 months. We break down what this means for project managers
+            and HR leaders planning their teams.</p>
+          <div class="blog-meta" style="margin-bottom: 1.5rem;">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              June 15, 2026
+            </span>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              8 min read
+            </span>
+          </div>
+          <a href="#" class="blog-read-link">
+            Read Full Article
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-bottom: 1rem;">
+        <span class="section-tag">Latest Articles</span>
+        <h2 class="section-title" style="display: inline-block;">Workforce Insights &amp; News</h2>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="blogs-grid">
+
+        <!-- Blog 1 -->
+        <div class="blog-card">
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"
+            alt="UAE Labour Law Update"
+            class="blog-card-img"
+          />
+          <div class="blog-card-body">
+            <span class="blog-tag">Labour Law</span>
+            <h3>Understanding the New UAE Labour Law Amendments: What Employers Must Know in 2026</h3>
+            <p>Recent amendments to the UAE Federal Decree-Law on Labour Relations introduce significant changes
+              to flexible working, end-of-service benefits, and WPS compliance. Here's a detailed breakdown.</p>
+            <a href="#" class="blog-read-link">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <div class="blog-meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                May 28, 2026
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                6 min read
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 2 -->
+        <div class="blog-card">
+          <img
+            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"
+            alt="MEP Workforce Demand"
+            class="blog-card-img"
+          />
+          <div class="blog-card-body">
+            <span class="blog-tag">MEP &amp; Engineering</span>
+            <h3>The Surge in MEP Workforce Demand Across Gulf's Major Giga-Projects</h3>
+            <p>Saudi Arabia's NEOM, Dubai's Urban Plan 2040, and Abu Dhabi's massive infrastructure pipeline are
+              driving unprecedented demand for certified MEP technicians and engineers throughout the GCC.</p>
+            <a href="#" class="blog-read-link">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <div class="blog-meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                May 10, 2026
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                5 min read
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 3 -->
+        <div class="blog-card">
+          <img
+            src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&w=600&q=80"
+            alt="Worker Welfare Standards"
+            class="blog-card-img"
+          />
+          <div class="blog-card-body">
+            <span class="blog-tag">Welfare &amp; HSE</span>
+            <h3>How Premium Worker Welfare Programs Directly Improve Project Productivity by 40%</h3>
+            <p>Research consistently shows a direct correlation between worker living conditions, health support,
+              and site productivity. Here's how top manpower companies in the UAE are leveraging welfare
+              as a competitive advantage.</p>
+            <a href="#" class="blog-read-link">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <div class="blog-meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                April 22, 2026
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                7 min read
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 4 -->
+        <div class="blog-card">
+          <img
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80"
+            alt="Logistics Workforce UAE"
+            class="blog-card-img"
+          />
+          <div class="blog-card-body">
+            <span class="blog-tag">Logistics</span>
+            <h3>E-Commerce Boom Drives Surge in Warehouse &amp; Logistics Workforce Demand Across Dubai</h3>
+            <p>With Dubai's logistics sector growing at 12% annually, the demand for trained warehouse staff,
+              forklift operators, and delivery personnel has reached an all-time high. We explore what this
+              means for businesses.</p>
+            <a href="#" class="blog-read-link">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <div class="blog-meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                April 5, 2026
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                4 min read
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 5 -->
+        <div class="blog-card">
+          <img
+            src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=600&q=80"
+            alt="Outsourcing vs Direct Hiring"
+            class="blog-card-img"
+          />
+          <div class="blog-card-body">
+            <span class="blog-tag">HR Strategy</span>
+            <h3>Outsourcing vs. Direct Hiring in UAE: Which Model Saves More for Your Business?</h3>
+            <p>A comprehensive cost analysis comparing managed outsourcing vs. direct employment for UAE
+              companies across construction, facilities management, and hospitality sectors. The numbers
+              may surprise you.</p>
+            <a href="#" class="blog-read-link">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <div class="blog-meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                March 18, 2026
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                9 min read
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 6 -->
+        <div class="blog-card">
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80"
+            alt="Hospitality Staffing UAE"
+            class="blog-card-img"
+          />
+          <div class="blog-card-body">
+            <span class="blog-tag">Hospitality</span>
+            <h3>Staffing for Dubai's World-Class Hospitality Sector: Quality Standards That Cannot Be Compromised</h3>
+            <p>With Dubai ranked among the world's top tourist destinations, hospitality establishments
+              face unparalleled expectations for service excellence. Here's how we ensure every team member
+              is trained to meet those expectations.</p>
+            <a href="#" class="blog-read-link">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <div class="blog-meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                March 3, 2026
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                5 min read
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">
+            <img src="logo.png" alt="Arc Manpower Logo" class="logo-img" />
+            ARC<span>MANPOWER</span>
+          </a>
+          <p>Arc Manpower is an ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018 certified global manpower supplier.
+            Strategically catering workforce solutions to major industrial infrastructures, energy systems, and
+            corporate facilities in the UAE.</p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/arc-global-uae/" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/arc_global_?igsh=MWhqeXkxdXNpYXVldA==" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">Who We Are</a>
+            <a href="sectors.html">Our Sectors</a>
+            <a href="welfare.html">Welfare &amp; HSE</a>
+            <a href="careers.html">Careers</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="index.html#contact">Let's Discuss</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Address &amp; Contacts</h4>
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="footer-contact-text">
+                <h5>Sharjah (Head Office)</h5>
+                <p>948, Damas 2000, Rolla – Sharjah</p>
+                <p style="font-size: 0.85rem; margin-top: 0.2rem; color: var(--accent);">T: +971 065323731</p>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="footer-contact-text">
+                <h5>Dubai Office</h5>
+                <p>Damas Tower, 14th Floor, Office 1403, Al Maktoum Road, Deira, Dubai</p>
+                <p style="font-size: 0.85rem; margin-top: 0.2rem; color: var(--accent);">T: +971 065323731</p>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="footer-contact-text">
+                <h5>Official Email</h5>
+                <p><a href="mailto:hr@arcmanpower.com"
+                    style="color: inherit; text-decoration: none;">hr@arcmanpower.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright &copy; <span id="year">2026</span> Arc Manpower. All Rights Reserved. Supplying Excellence Globally.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
