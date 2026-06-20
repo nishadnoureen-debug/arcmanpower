@@ -6,6 +6,33 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   
+  // --- PAGE TRANSITION FADE IN & FADE OUT ---
+  document.body.classList.add('fade-in');
+
+  // Intercept nav clicks to perform a fade-out animation before navigating
+  const transitionLinks = document.querySelectorAll('a');
+  transitionLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    const target = link.getAttribute('target');
+    
+    if (href && 
+        href.endsWith('.html') && 
+        target !== '_blank' && 
+        !href.startsWith('#') &&
+        !href.startsWith('tel:') &&
+        !href.startsWith('mailto:')) {
+          
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.remove('fade-in');
+        
+        setTimeout(() => {
+          window.location.href = href;
+        }, 350);
+      });
+    }
+  });
+
   // Set copyright year dynamically
   const yearSpan = document.getElementById('year');
   if (yearSpan) {
