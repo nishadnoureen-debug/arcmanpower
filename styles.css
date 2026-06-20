@@ -2527,8 +2527,116 @@ footer {
   }
 }
 
+/* ============================================================
+   LEADERSHIP TEAM SECTION
+   ============================================================ */
+.leadership {
+  background: linear-gradient(180deg, rgba(241, 245, 248, 0.4) 0%, rgba(225, 235, 245, 0.4) 100%);
+  position: relative;
+}
 
+.leadership-tag {
+  display: inline-block;
+  padding: 0.5rem 1.4rem;
+  background-color: rgba(56, 108, 152, 0.1);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 30px;
+  margin-bottom: 1.2rem;
+}
 
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
 
+.leadership-card {
+  background-color: var(--bg-light);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-premium);
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.leadership-img-box {
+  height: 380px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--bg-light);
+}
+
+.leadership-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-bottom-right-radius: 120px;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.leadership-info {
+  padding: 2.2rem 2.2rem 2.5rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.leadership-info h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+}
+
+.leadership-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.leadership-line {
+  width: 35px;
+  height: 3px;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+.leadership-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(56, 108, 152, 0.2);
+}
+
+.leadership-card:hover .leadership-img-box img {
+  transform: scale(1.05);
+}
+
+/* Leadership Responsive Design */
+@media (max-width: 768px) {
+  .leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 420px;
+  }
   
-
+  .leadership-img-box {
+    height: 340px;
+  }
+  
+  .leadership-info {
+    padding: 1.8rem 1.8rem 2rem 1.8rem;
+  }
+}
