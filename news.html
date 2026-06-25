@@ -419,38 +419,59 @@
         <div class="ph-strip" id="phStrip">
 
           <div class="ph-card">
-            <img src="asset/team_indoor.jpg" alt="Head Office Inauguration" />
-            <div class="ph-label">Head Office Inauguration</div>
+            <div class="ph-img-wrap"><img src="asset/team_indoor.jpg" alt="Head Office Inauguration" /></div>
+            <div class="ph-info">
+              <h3 class="ph-title">Head Office Inauguration</h3>
+              <p class="ph-desc">Commemorating the ribbon-cutting and official opening of our corporate headquarters in Rolla, Sharjah — a milestone in our global expansion.</p>
+            </div>
           </div>
 
           <div class="ph-card">
-            <img src="asset/team_outdoor.jpg" alt="Iftar Meet Party" />
-            <div class="ph-label">Iftar Meet Party</div>
+            <div class="ph-img-wrap"><img src="asset/team_outdoor.jpg" alt="Iftar Meet Party" /></div>
+            <div class="ph-info">
+              <h3 class="ph-title">Iftar Meet Party</h3>
+              <p class="ph-desc">Celebrating the holy month of Ramadan with our annual Iftar gathering — bringing together our executive board, teams, and project partners in unity.</p>
+            </div>
           </div>
 
           <div class="ph-card">
-            <img src="asset/national_day.jpg" alt="National Day Celebration" />
-            <div class="ph-label">National Day Celebration</div>
+            <div class="ph-img-wrap"><img src="asset/national_day.jpg" alt="National Day Celebration" /></div>
+            <div class="ph-info">
+              <h3 class="ph-title">National Day Celebration</h3>
+              <p class="ph-desc">Commemorating the Spirit of the Union — our team celebrated UAE National Day with pride, expressing gratitude for being part of this great nation's progress.</p>
+            </div>
           </div>
 
           <div class="ph-card">
-            <img src="asset/onam.jpg" alt="Onam Celebration" />
-            <div class="ph-label">Onam Celebration</div>
+            <div class="ph-img-wrap"><img src="asset/onam.jpg" alt="Onam Celebration" /></div>
+            <div class="ph-info">
+              <h3 class="ph-title">Onam Celebration</h3>
+              <p class="ph-desc">Celebrating diversity and togetherness with Onam festivities — featuring traditional attire, floral designs, and the lighting of the ceremonial lamp at our office.</p>
+            </div>
           </div>
 
           <div class="ph-card">
-            <img src="asset/diwali.jpg" alt="Diwali Celebration" />
-            <div class="ph-label">Diwali Celebration</div>
+            <div class="ph-img-wrap"><img src="asset/diwali.jpg" alt="Diwali Celebration" /></div>
+            <div class="ph-info">
+              <h3 class="ph-title">Diwali Celebration</h3>
+              <p class="ph-desc">Marking the Festival of Lights with warmth and joy — management and team members joined together for corporate prayers and celebrations across cultures.</p>
+            </div>
           </div>
 
           <div class="ph-card">
-            <img src="asset/sports_day.jpg" alt="Sports Day" />
-            <div class="ph-label">Sports Day</div>
+            <div class="ph-img-wrap"><img src="asset/sports_day.jpg" alt="Sports Day" /></div>
+            <div class="ph-info">
+              <h3 class="ph-title">Sports Day</h3>
+              <p class="ph-desc">Fostering team spirit and healthy competition at our Annual Sports Day — where administrative staff and site professionals joined for exciting sporting activities.</p>
+            </div>
           </div>
 
           <div class="ph-card">
-            <img src="asset/vehicle_handover.jpg" alt="Vehicle Handovering Day" />
-            <div class="ph-label">Vehicle Handovering Day</div>
+            <div class="ph-img-wrap"><img src="asset/vehicle_handover.jpg" alt="Vehicle Handovering Day" /></div>
+            <div class="ph-info">
+              <h3 class="ph-title">Vehicle Handovering Day</h3>
+              <p class="ph-desc">Celebrating the handover of our new corporate transport fleet — a milestone showcasing our commitment to efficient staff mobilization and operational excellence.</p>
+            </div>
           </div>
 
           <!-- Scroll Button at the END of the strip -->
@@ -502,41 +523,58 @@
     /* ── Individual photo card ── */
     .ph-card {
       flex-shrink: 0;
-      width: 280px;
-      border-radius: 16px;
+      width: 380px;
+      border-radius: 20px;
       overflow: hidden;
       position: relative;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
       border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--bg-card);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      display: flex;
+      flex-direction: column;
     }
     .ph-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 20px 48px rgba(0,0,0,0.5);
-    }
-    .ph-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    .ph-card:hover img {
-      transform: scale(1.06);
+      transform: translateY(-8px);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.55);
     }
 
-    /* ── Caption overlay ── */
-    .ph-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 2rem 1rem 0.9rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
-      color: #fff;
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+    /* ── Image wrapper (clips zoom) ── */
+    .ph-img-wrap {
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .ph-img-wrap img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .ph-card:hover .ph-img-wrap img {
+      transform: scale(1.07);
+    }
+
+    /* ── Info panel below photo ── */
+    .ph-info {
+      padding: 1.2rem 1.4rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .ph-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+      line-height: 1.4;
+    }
+    .ph-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0;
     }
 
     /* ── Scroll button container (sits at end of strip) ── */
@@ -605,9 +643,13 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 640px) {
-      .ph-card { width: 220px; }
-      .ph-card img { height: 160px; }
+    @media (max-width: 768px) {
+      .ph-card { width: 300px; }
+      .ph-img-wrap img { height: 210px; }
+    }
+    @media (max-width: 480px) {
+      .ph-card { width: 260px; }
+      .ph-img-wrap img { height: 180px; }
     }
   </style>
 
