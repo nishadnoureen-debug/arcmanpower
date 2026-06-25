@@ -403,8 +403,8 @@
     </div>
   </section>
 
-  <!-- OFFICE EVENTS PHOTOS GALLERY -->
-  <section class="office-events-section reveal" id="office-events" style="padding: 5rem 0 6rem;">
+  <!-- OFFICE EVENTS PHOTOS GALLERY — CAROUSEL -->
+  <section class="office-events-section" id="office-events" style="padding: 5rem 0 6rem; background: var(--bg-primary);">
     <div class="container">
       <div style="text-align: center; margin-bottom: 3.5rem;">
         <span class="section-tag">Gallery</span>
@@ -412,86 +412,381 @@
         <p class="section-desc" style="margin: 0 auto;">Moments from our corporate gatherings, team building activities, and executive summits in the UAE.</p>
       </div>
 
-      <div class="events-grid">
-        <!-- Event Card 1 -->
-        <div class="event-card reveal">
-          <div class="event-img-box">
-            <img src="asset/team_indoor.jpg" alt="Arc Manpower Head Office Inauguration Event" />
+      <!-- CAROUSEL WRAPPER -->
+      <div class="ev-carousel" id="evCarousel">
+
+        <!-- Main Stage -->
+        <div class="ev-stage">
+
+          <!-- Slides -->
+          <div class="ev-slides" id="evSlides">
+
+            <div class="ev-slide active">
+              <img src="asset/team_indoor.jpg" alt="Head Office Inauguration" />
+            </div>
+            <div class="ev-slide">
+              <img src="asset/team_outdoor.jpg" alt="Iftar Meet Party" />
+            </div>
+            <div class="ev-slide">
+              <img src="asset/national_day.jpg" alt="National Day Celebration" />
+            </div>
+            <div class="ev-slide">
+              <img src="asset/onam.jpg" alt="Onam Celebration" />
+            </div>
+            <div class="ev-slide">
+              <img src="asset/diwali.jpg" alt="Diwali Celebration" />
+            </div>
+            <div class="ev-slide">
+              <img src="asset/sports_day.jpg" alt="Sports Day" />
+            </div>
+            <div class="ev-slide">
+              <img src="asset/vehicle_handover.jpg" alt="Vehicle Handovering Day" />
+            </div>
+
+          </div><!-- /ev-slides -->
+
+          <!-- Prev / Next Arrows -->
+          <button class="ev-arrow ev-prev" id="evPrev" aria-label="Previous photo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="ev-arrow ev-next" id="evNext" aria-label="Next photo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- Slide Counter -->
+          <div class="ev-counter">
+            <span id="evCurrent">1</span> / <span id="evTotal">7</span>
           </div>
-          <div class="event-info">
-            <h3>Head Office Inauguration</h3>
-            <p>Commemorating the ribbon-cutting ceremony and official inauguration of our state-of-the-art corporate headquarters in Rolla, Sharjah, expanding our global operations.</p>
+
+        </div><!-- /ev-stage -->
+
+        <!-- Caption Bar -->
+        <div class="ev-caption" id="evCaption">
+          <div class="ev-caption-inner">
+            <h3 id="evTitle">Head Office Inauguration</h3>
+            <p id="evDesc">Commemorating the ribbon-cutting ceremony and official inauguration of our state-of-the-art corporate headquarters in Rolla, Sharjah, expanding our global operations.</p>
           </div>
         </div>
 
-        <!-- Event Card 2 -->
-        <div class="event-card reveal">
-          <div class="event-img-box">
-            <img src="asset/team_outdoor.jpg" alt="Arc Manpower Iftar Meet Party Event" />
-          </div>
-          <div class="event-info">
-            <h3>Iftar Meet Party</h3>
-            <p>Celebrating the holy month of Ramadan with our annual corporate Iftar gathering, bringing together our executive board, administrative teams, and project partners.</p>
-          </div>
+        <!-- Dot Indicators -->
+        <div class="ev-dots" id="evDots">
+          <button class="ev-dot active" data-idx="0" aria-label="Slide 1"></button>
+          <button class="ev-dot" data-idx="1" aria-label="Slide 2"></button>
+          <button class="ev-dot" data-idx="2" aria-label="Slide 3"></button>
+          <button class="ev-dot" data-idx="3" aria-label="Slide 4"></button>
+          <button class="ev-dot" data-idx="4" aria-label="Slide 5"></button>
+          <button class="ev-dot" data-idx="5" aria-label="Slide 6"></button>
+          <button class="ev-dot" data-idx="6" aria-label="Slide 7"></button>
         </div>
 
-        <!-- Event Card 3 -->
-        <div class="event-card reveal">
-          <div class="event-img-box">
-            <img src="asset/national_day.jpg" alt="Arc Manpower UAE National Day Celebration Event" />
-          </div>
-          <div class="event-info">
-            <h3>National Day Celebration</h3>
-            <p>Commemorating the Spirit of the Union, our team gathered to celebrate the UAE National Day, expressing our gratitude and pride in being part of the nation's progress and success.</p>
-          </div>
+        <!-- Thumbnail Strip -->
+        <div class="ev-thumbs" id="evThumbs">
+          <div class="ev-thumb active" data-idx="0"><img src="asset/team_indoor.jpg" alt="Head Office Inauguration" /></div>
+          <div class="ev-thumb" data-idx="1"><img src="asset/team_outdoor.jpg" alt="Iftar Meet Party" /></div>
+          <div class="ev-thumb" data-idx="2"><img src="asset/national_day.jpg" alt="National Day Celebration" /></div>
+          <div class="ev-thumb" data-idx="3"><img src="asset/onam.jpg" alt="Onam Celebration" /></div>
+          <div class="ev-thumb" data-idx="4"><img src="asset/diwali.jpg" alt="Diwali Celebration" /></div>
+          <div class="ev-thumb" data-idx="5"><img src="asset/sports_day.jpg" alt="Sports Day" /></div>
+          <div class="ev-thumb" data-idx="6"><img src="asset/vehicle_handover.jpg" alt="Vehicle Handovering Day" /></div>
         </div>
 
-        <!-- Event Card 4 -->
-        <div class="event-card reveal">
-          <div class="event-img-box">
-            <img src="asset/onam.jpg" alt="Arc Manpower Onam Festival Celebration Event" />
-          </div>
-          <div class="event-info">
-            <h3>Onam Celebration</h3>
-            <p>Celebrating diversity and togetherness with our annual Onam festivities, featuring traditional attire, floral designs, and lighting the ceremonial lamp in our corporate office.</p>
-          </div>
-        </div>
-
-        <!-- Event Card 5 -->
-        <div class="event-card reveal">
-          <div class="event-img-box">
-            <img src="asset/diwali.jpg" alt="Arc Manpower Diwali Festival Celebration Event" />
-          </div>
-          <div class="event-info">
-            <h3>Diwali Celebration</h3>
-            <p>Marking the festival of lights with warmth and joy, our management and team members conducted corporate prayers and celebrations, fostering unity across cultures.</p>
-          </div>
-        </div>
-
-        <!-- Event Card 6 -->
-        <div class="event-card reveal">
-          <div class="event-img-box">
-            <img src="asset/sports_day.jpg" alt="Arc Manpower Annual Sports Day Event" />
-          </div>
-          <div class="event-info">
-            <h3>Sports Day</h3>
-            <p>Fostering team spirit and healthy competition during our Annual Sports Day, where administrative staff and site professionals joined together for various sporting activities.</p>
-          </div>
-        </div>
-
-        <!-- Event Card 7 -->
-        <div class="event-card reveal">
-          <div class="event-img-box">
-            <img src="asset/vehicle_handover.jpg" alt="Arc Manpower Vehicle Handovering Achievement Event" />
-          </div>
-          <div class="event-info">
-            <h3>Vehicle Handovering Day</h3>
-            <p>Celebrating the handover of our new corporate transport fleet, a milestone achievement showcasing our commitment to efficient staff mobilization and operational excellence.</p>
-          </div>
-        </div>
-      </div>
+      </div><!-- /ev-carousel -->
     </div>
   </section>
+
+  <!-- GALLERY CAROUSEL STYLES -->
+  <style>
+    /* ── Carousel Wrapper ── */
+    .ev-carousel {
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    /* ── Stage (image area) ── */
+    .ev-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .ev-slides {
+      display: flex;
+      height: 100%;
+      transition: transform 0.55s cubic-bezier(0.77, 0, 0.18, 1);
+    }
+
+    .ev-slide {
+      min-width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .ev-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 6s ease;
+    }
+
+    .ev-slide.active img {
+      transform: scale(1.04);
+    }
+
+    /* ── Arrow Buttons ── */
+    .ev-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 10, 20, 0.65);
+      color: #fff;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .ev-arrow:hover {
+      background: var(--primary);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 28px rgba(var(--primary-rgb, 14,47,98), 0.5);
+    }
+
+    .ev-prev { left: 18px; }
+    .ev-next { right: 18px; }
+
+    /* ── Slide Counter ── */
+    .ev-counter {
+      position: absolute;
+      bottom: 14px;
+      right: 18px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    /* ── Caption Bar ── */
+    .ev-caption {
+      padding: 1.6rem 2rem;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      min-height: 90px;
+    }
+
+    .ev-caption-inner { animation: captionFade 0.4s ease; }
+
+    @keyframes captionFade {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .ev-caption h3 {
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .ev-caption p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── Dot Indicators ── */
+    .ev-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 1rem 0 0.5rem;
+      background: var(--bg-card);
+    }
+
+    .ev-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: var(--border);
+      transition: background 0.3s ease, transform 0.3s ease, width 0.3s ease;
+      padding: 0;
+    }
+
+    .ev-dot.active {
+      background: var(--accent);
+      transform: scale(1.3);
+      width: 26px;
+      border-radius: 5px;
+    }
+
+    /* ── Thumbnail Strip ── */
+    .ev-thumbs {
+      display: flex;
+      gap: 8px;
+      padding: 0.9rem 1.2rem 1.2rem;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+    }
+
+    .ev-thumbs::-webkit-scrollbar { height: 4px; }
+    .ev-thumbs::-webkit-scrollbar-track { background: transparent; }
+    .ev-thumbs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .ev-thumb {
+      flex-shrink: 0;
+      width: 88px;
+      height: 58px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2.5px solid transparent;
+      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      opacity: 0.55;
+    }
+
+    .ev-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .ev-thumb:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    .ev-thumb.active {
+      border-color: var(--accent);
+      opacity: 1;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .ev-stage { aspect-ratio: 4 / 3; }
+      .ev-arrow { width: 40px; height: 40px; }
+      .ev-caption { padding: 1.2rem 1.2rem; }
+      .ev-thumb { width: 66px; height: 44px; }
+    }
+  </style>
+
+  <!-- GALLERY CAROUSEL SCRIPT -->
+  <script>
+    (function () {
+      const slides   = document.querySelectorAll('.ev-slide');
+      const slidesEl = document.getElementById('evSlides');
+      const dots     = document.querySelectorAll('.ev-dot');
+      const thumbs   = document.querySelectorAll('.ev-thumb');
+      const curEl    = document.getElementById('evCurrent');
+      const titleEl  = document.getElementById('evTitle');
+      const descEl   = document.getElementById('evDesc');
+
+      const captions = [
+        { title: 'Head Office Inauguration',  desc: 'Commemorating the ribbon-cutting ceremony and official inauguration of our state-of-the-art corporate headquarters in Rolla, Sharjah, expanding our global operations.' },
+        { title: 'Iftar Meet Party',           desc: 'Celebrating the holy month of Ramadan with our annual corporate Iftar gathering, bringing together our executive board, administrative teams, and project partners.' },
+        { title: 'National Day Celebration',   desc: 'Commemorating the Spirit of the Union, our team gathered to celebrate the UAE National Day, expressing our gratitude and pride in being part of the nation\'s progress and success.' },
+        { title: 'Onam Celebration',           desc: 'Celebrating diversity and togetherness with our annual Onam festivities, featuring traditional attire, floral designs, and lighting the ceremonial lamp in our corporate office.' },
+        { title: 'Diwali Celebration',         desc: 'Marking the festival of lights with warmth and joy, our management and team members conducted corporate prayers and celebrations, fostering unity across cultures.' },
+        { title: 'Sports Day',                 desc: 'Fostering team spirit and healthy competition during our Annual Sports Day, where administrative staff and site professionals joined together for various sporting activities.' },
+        { title: 'Vehicle Handovering Day',    desc: 'Celebrating the handover of our new corporate transport fleet, a milestone achievement showcasing our commitment to efficient staff mobilization and operational excellence.' },
+      ];
+
+      let current = 0;
+      let autoTimer;
+
+      function goTo(idx) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        thumbs[current].classList.remove('active');
+
+        current = (idx + slides.length) % slides.length;
+
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        thumbs[current].classList.add('active');
+
+        slidesEl.style.transform = `translateX(-${current * 100}%)`;
+        curEl.textContent = current + 1;
+
+        // Update caption with re-animation
+        titleEl.parentElement.style.animation = 'none';
+        titleEl.parentElement.offsetHeight; // reflow
+        titleEl.parentElement.style.animation = '';
+        titleEl.textContent = captions[current].title;
+        descEl.textContent  = captions[current].desc;
+
+        // Scroll thumbnail into view
+        thumbs[current].scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+
+        resetAuto();
+      }
+
+      function resetAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => goTo(current + 1), 5000);
+      }
+
+      document.getElementById('evPrev').addEventListener('click', () => goTo(current - 1));
+      document.getElementById('evNext').addEventListener('click', () => goTo(current + 1));
+
+      dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+      thumbs.forEach(t => t.addEventListener('click', () => goTo(+t.dataset.idx)));
+
+      // Keyboard navigation
+      document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft')  goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+      });
+
+      // Touch / swipe support
+      let touchStartX = 0;
+      const stage = document.getElementById('evCarousel');
+      stage.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend',   e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+      });
+
+      resetAuto();
+    })();
+  </script>
 
   <!-- FOOTER -->
   <footer>
