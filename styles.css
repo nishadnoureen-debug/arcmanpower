@@ -2673,11 +2673,13 @@ footer {
   justify-content: center;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+  transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
   pointer-events: all;
 }
 
-.no-loader .page-transition-overlay {
+/* Hide brand loader details on page transitions (leaving/no-loader) to keep clean wash */
+.page-transition-overlay.leaving .transition-content,
+.no-loader .transition-content {
   display: none !important;
 }
 
