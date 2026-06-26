@@ -6,61 +6,19 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   
-  // --- PAGE ENTRANCE OVERLAY ENGINE (with session-based page transition) ---
+  // --- PAGE ENTRANCE OVERLAY (shown only on load / reload, not on internal navigation) ---
   const transitionOverlay = document.getElementById('pageTransitionOverlay');
-  const isPageSwitch = document.documentElement.classList.contains('no-loader');
   
   if (transitionOverlay) {
-    if (isPageSwitch) {
-      // For page switches, fade out the clean color wash immediately (using a slow 0.6s animation)
-      setTimeout(() => {
-        transitionOverlay.classList.add('fade-out');
-      }, 50);
-    } else {
-      // For initial site open / reload, hold long enough to show brand assets + loader
-      setTimeout(() => {
-        transitionOverlay.classList.add('fade-out');
-      }, 1000);
-    }
+    // Fade out overlay after the brand splash animation completes on page load/reload
+    setTimeout(() => {
+      transitionOverlay.classList.add('fade-out');
+    }, 1000); // Hold long enough to show logo + loader bar, then dismiss
   }
-
-  // Intercept navigation links for smooth page-switch transition (fade out current page)
-  const localLinks = document.querySelectorAll('a[href]');
-  localLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (!href) return;
-    
-    const isAnchor = href.startsWith('#');
-    const isMailTo = href.startsWith('mailto:');
-    const isTel = href.startsWith('tel:');
-    const isExternal = (href.startsWith('http://') || href.startsWith('https://')) && !href.includes(window.location.hostname);
-    const targetAttr = link.getAttribute('target');
-    const isNewTab = targetAttr && targetAttr.toLowerCase() === '_blank';
-
-    if (!isAnchor && !isMailTo && !isTel && !isExternal && !isNewTab && href !== '' && href !== 'javascript:void(0);') {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        if (transitionOverlay) {
-          // Hide logo and brand details on exit to only show a clean color wash fade-in
-          transitionOverlay.classList.add('leaving');
-          transitionOverlay.classList.remove('fade-out');
-          
-          // Redirect after exit transition completes (600ms matches exit transition)
-          setTimeout(() => {
-            window.location.href = href;
-          }, 600);
-        } else {
-          window.location.href = href;
-        }
-      });
-    }
-  });
 
   // Handle bfcache (browser back/forward buttons) — hide overlay immediately
   window.addEventListener('pageshow', (event) => {
     if (event.persisted && transitionOverlay) {
-      transitionOverlay.classList.remove('leaving');
       transitionOverlay.classList.add('fade-out');
     }
   });
