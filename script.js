@@ -13,7 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fade out overlay on load
     setTimeout(() => {
       transitionOverlay.classList.add('fade-out');
-    }, 450); // Small delay to show elegant brand logo and fill animation
+      // Remove leaving class after it fades out so it starts clean next time
+      setTimeout(() => {
+        transitionOverlay.classList.remove('leaving');
+      }, 300);
+    }, 450); // Delay to show elegant brand logo and fill animation on load
   }
 
   // Intercept navigation links for smooth exit transition
@@ -35,29 +39,26 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         
         if (transitionOverlay) {
-          const loaderFill = transitionOverlay.querySelector('.transition-loader-fill');
-          if (loaderFill) {
-            // Reset loader fill animation and trigger exit fill
-            loaderFill.style.animation = 'none';
-            void loaderFill.offsetWidth;
-            loaderFill.style.width = '0';
-            loaderFill.style.transition = 'width 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-            setTimeout(() => {
-              loaderFill.style.width = '100%';
-            }, 10);
-          }
-          
-          // Show overlay
+          // Hide logo and brand details on exit to only show a clean color wash fade-in (prevents double loader animation)
+          transitionOverlay.classList.add('leaving');
           transitionOverlay.classList.remove('fade-out');
           
-          // Redirect after transition completes
+          // Redirect after transition completes (300ms matches exit transition)
           setTimeout(() => {
             window.location.href = href;
-          }, 450);
+          }, 300);
         } else {
           window.location.href = href;
         }
       });
+    }
+  });
+
+  // Handle bfcache (browser back/forward cache) to prevent stuck loader screen
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted && transitionOverlay) {
+      transitionOverlay.classList.remove('leaving');
+      transitionOverlay.classList.add('fade-out');
     }
   });
 
