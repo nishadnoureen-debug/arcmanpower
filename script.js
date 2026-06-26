@@ -6,7 +6,60 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   
-  // Page transitions are now handled instantly via CSS load animations to avoid hangs.
+  // --- PAGE TRANSITION OVERLAY ENGINE ---
+  const transitionOverlay = document.getElementById('pageTransitionOverlay');
+  
+  if (transitionOverlay) {
+    // Fade out overlay on load
+    setTimeout(() => {
+      transitionOverlay.classList.add('fade-out');
+    }, 450); // Small delay to show elegant brand logo and fill animation
+  }
+
+  // Intercept navigation links for smooth exit transition
+  const localLinks = document.querySelectorAll('a[href]');
+  localLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    
+    const isAnchor = href.startsWith('#');
+    const isMailTo = href.startsWith('mailto:');
+    const isTel = href.startsWith('tel:');
+    const isExternal = (href.startsWith('http://') || href.startsWith('https://')) && !href.includes(window.location.hostname);
+    const targetAttr = link.getAttribute('target');
+    const isNewTab = targetAttr && targetAttr.toLowerCase() === '_blank';
+
+    if (!isAnchor && !isMailTo && !isTel && !isExternal && !isNewTab && href !== '' && href !== 'javascript:void(0);') {
+      link.addEventListener('click', (e) => {
+        // Prevent default navigation
+        e.preventDefault();
+        
+        if (transitionOverlay) {
+          const loaderFill = transitionOverlay.querySelector('.transition-loader-fill');
+          if (loaderFill) {
+            // Reset loader fill animation and trigger exit fill
+            loaderFill.style.animation = 'none';
+            void loaderFill.offsetWidth;
+            loaderFill.style.width = '0';
+            loaderFill.style.transition = 'width 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            setTimeout(() => {
+              loaderFill.style.width = '100%';
+            }, 10);
+          }
+          
+          // Show overlay
+          transitionOverlay.classList.remove('fade-out');
+          
+          // Redirect after transition completes
+          setTimeout(() => {
+            window.location.href = href;
+          }, 450);
+        } else {
+          window.location.href = href;
+        }
+      });
+    }
+  });
 
   // Set copyright year dynamically
   const yearSpan = document.getElementById('year');

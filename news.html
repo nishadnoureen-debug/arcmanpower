@@ -158,9 +158,27 @@
       .blog-featured-img { min-height: 220px; }
     }
   </style>
+
+  <!-- No-JS Page Transition Fallback -->
+  <noscript>
+    <style>
+      .page-transition-overlay { display: none !important; }
+    </style>
+  </noscript>
 </head>
 
 <body>
+
+  <!-- PAGE TRANSITION OVERLAY -->
+  <div class="page-transition-overlay" id="pageTransitionOverlay">
+    <div class="transition-content">
+      <img src="logo.png" alt="Arc Manpower Logo" class="transition-logo" />
+      <div class="transition-brand">ARC<span>MANPOWER</span></div>
+      <div class="transition-loader-bar">
+        <div class="transition-loader-fill"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- FLOATING SCROLL TOP TRIGGER -->
   <div class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
