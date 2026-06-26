@@ -2657,7 +2657,7 @@ footer {
 }
 
 /* ============================================================
-   PAGE TRANSITION OVERLAY
+   PAGE ENTRANCE OVERLAY (load/reload only)
    ============================================================ */
 .page-transition-overlay {
   position: fixed;
@@ -2673,7 +2673,7 @@ footer {
   justify-content: center;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
   pointer-events: all;
 }
 
@@ -2683,19 +2683,12 @@ footer {
   pointer-events: none;
 }
 
-/* Hides loader contents when exiting a page to prevent double loader animations */
-.page-transition-overlay.leaving .transition-content {
-  opacity: 0;
-  visibility: hidden;
-}
-
 .transition-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
 
 .transition-logo {
@@ -2744,7 +2737,7 @@ footer {
   width: 0;
   background: linear-gradient(to right, var(--accent-light), var(--accent));
   border-radius: 4px;
-  animation: transition-bar-fill 0.4s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+  animation: transition-bar-fill 0.85s cubic-bezier(0.1, 0.6, 0.3, 1) forwards;
 }
 
 @keyframes transition-logo-reveal {

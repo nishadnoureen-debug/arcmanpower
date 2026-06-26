@@ -6,58 +6,19 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   
-  // --- PAGE TRANSITION OVERLAY ENGINE ---
+  // --- PAGE ENTRANCE OVERLAY (shown only on load / reload, not on internal navigation) ---
   const transitionOverlay = document.getElementById('pageTransitionOverlay');
   
   if (transitionOverlay) {
-    // Fade out overlay on load
+    // Fade out overlay after the brand splash animation completes on page load/reload
     setTimeout(() => {
       transitionOverlay.classList.add('fade-out');
-      // Remove leaving class after it fades out so it starts clean next time
-      setTimeout(() => {
-        transitionOverlay.classList.remove('leaving');
-      }, 300);
-    }, 450); // Delay to show elegant brand logo and fill animation on load
+    }, 1000); // Hold long enough to show logo + loader bar, then dismiss
   }
 
-  // Intercept navigation links for smooth exit transition
-  const localLinks = document.querySelectorAll('a[href]');
-  localLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (!href) return;
-    
-    const isAnchor = href.startsWith('#');
-    const isMailTo = href.startsWith('mailto:');
-    const isTel = href.startsWith('tel:');
-    const isExternal = (href.startsWith('http://') || href.startsWith('https://')) && !href.includes(window.location.hostname);
-    const targetAttr = link.getAttribute('target');
-    const isNewTab = targetAttr && targetAttr.toLowerCase() === '_blank';
-
-    if (!isAnchor && !isMailTo && !isTel && !isExternal && !isNewTab && href !== '' && href !== 'javascript:void(0);') {
-      link.addEventListener('click', (e) => {
-        // Prevent default navigation
-        e.preventDefault();
-        
-        if (transitionOverlay) {
-          // Hide logo and brand details on exit to only show a clean color wash fade-in (prevents double loader animation)
-          transitionOverlay.classList.add('leaving');
-          transitionOverlay.classList.remove('fade-out');
-          
-          // Redirect after transition completes (300ms matches exit transition)
-          setTimeout(() => {
-            window.location.href = href;
-          }, 300);
-        } else {
-          window.location.href = href;
-        }
-      });
-    }
-  });
-
-  // Handle bfcache (browser back/forward cache) to prevent stuck loader screen
+  // Handle bfcache (browser back/forward buttons) — hide overlay immediately
   window.addEventListener('pageshow', (event) => {
     if (event.persisted && transitionOverlay) {
-      transitionOverlay.classList.remove('leaving');
       transitionOverlay.classList.add('fade-out');
     }
   });
