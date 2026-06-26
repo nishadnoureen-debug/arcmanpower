@@ -2677,6 +2677,10 @@ footer {
   pointer-events: all;
 }
 
+.no-loader .page-transition-overlay {
+  display: none !important;
+}
+
 .page-transition-overlay.fade-out {
   opacity: 0;
   visibility: hidden;

@@ -28,6 +28,19 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- Check navigation context to restrict loader to initial open / manual reload -->
+  <script>
+    (function() {
+      const isReload = (window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType('navigation')[0] && window.performance.getEntriesByType('navigation')[0].type === 'reload') || (window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+      const hasLoadedBefore = sessionStorage.getItem('siteLoaded');
+      if (hasLoadedBefore && !isReload) {
+        document.documentElement.classList.add('no-loader');
+      } else {
+        sessionStorage.setItem('siteLoaded', 'true');
+      }
+    })();
+  </script>
+
   <!-- No-JS Page Transition Fallback -->
   <noscript>
     <style>
