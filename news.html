@@ -411,8 +411,10 @@
         <p class="section-desc" style="margin: 0 auto;">Moments from our corporate gatherings, team building activities, and executive summits in the UAE.</p>
       </div>
 
-      <!-- HORIZONTAL PHOTO STRIP -->
-      <div class="ph-strip-wrapper">
+    </div>
+
+    <!-- HORIZONTAL PHOTO STRIP — FULL WIDTH -->
+    <div class="ph-strip-wrapper">
 
         <!-- Scroll Area -->
         <div class="ph-strip" id="phStrip">
@@ -499,9 +501,8 @@
         <!-- Right fade edge -->
         <div class="ph-fade ph-fade-right" id="phFadeRight"></div>
 
-      </div><!-- /ph-strip-wrapper -->
+    </div><!-- /ph-strip-wrapper -->
 
-    </div>
   </section>
 
   <!-- PHOTO STRIP STYLES -->
@@ -516,10 +517,9 @@
     .ph-strip {
       display: flex;
       align-items: stretch;
-      gap: 16px;
+      gap: 20px;
       overflow-x: auto;
-      scroll-behavior: smooth;
-      padding: 8px 4px 20px;
+      padding: 8px 48px 24px;
       scrollbar-width: none; /* hide native scrollbar */
       -ms-overflow-style: none;
       cursor: grab;
@@ -530,7 +530,8 @@
     /* ── Individual photo card ── */
     .ph-card {
       flex-shrink: 0;
-      width: 500px;
+      width: 600px;
+      scroll-snap-align: start;
       border-radius: 20px;
       overflow: hidden;
       position: relative;
@@ -650,65 +651,116 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .ph-card { width: 380px; }
-      .ph-img-wrap img { height: 260px; }
+    @media (max-width: 960px) {
+      .ph-card { width: 480px; }
+      .ph-img-wrap img { height: 300px; }
     }
-    @media (max-width: 480px) {
-      .ph-card { width: 300px; }
-      .ph-img-wrap img { height: 220px; }
+    @media (max-width: 600px) {
+      .ph-card { width: 88vw; }
+      .ph-strip { padding: 8px 16px 20px; }
+      .ph-img-wrap img { height: 250px; }
     }
   </style>
 
   <!-- PHOTO STRIP SCRIPT -->
   <script>
     (function () {
-      const strip = document.getElementById('phStrip');
-      const btn   = document.getElementById('phScrollBtn');
-      const label = document.getElementById('phScrollLabel');
-      const fadeL = document.getElementById('phFadeLeft');
-      const fadeR = document.getElementById('phFadeRight');
+      const strip  = document.getElementById('phStrip');
+      const btn    = document.getElementById('phScrollBtn');
+      const label  = document.getElementById('phScrollLabel');
+      const fadeL  = document.getElementById('phFadeLeft');
+      const fadeR  = document.getElementById('phFadeRight');
 
-      const STEP = 320; // px per click
+      const PAUSE_MS = 3500;   /* pause at each photo (ms)         */
+      const TRANS_MS = 1400;   /* slow-scroll animation (ms)       */
 
-      function updateState() {
-        const atStart = strip.scrollLeft <= 2;
-        const atEnd   = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 2;
+      const cards     = Array.from(strip.querySelectorAll('.ph-card'));
+      let currentIdx  = 0;
+      let isUserBusy  = false;
+      let animating   = false;
+      let autoTimer   = null;
 
-        fadeL.style.opacity = atStart ? '0' : '1';
-        fadeR.style.opacity = atEnd   ? '0' : '1';
-
-        if (atEnd) {
-          btn.classList.add('at-end');
-          label.textContent = 'Back';
-        } else {
-          btn.classList.remove('at-end');
-          label.textContent = 'Scroll';
+      /* ── RAF easing scroll ── */
+      function smoothScrollTo(target, duration, onDone) {
+        animating       = true;
+        const startLeft = strip.scrollLeft;
+        const dist      = target - startLeft;
+        let   t0        = null;
+        function step(now) {
+          if (!t0) t0 = now;
+          const p    = Math.min((now - t0) / duration, 1);
+          const ease = p < 0.5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2; /* easeInOutCubic */
+          strip.scrollLeft = startLeft + dist * ease;
+          if (p < 1) { requestAnimationFrame(step); }
+          else        { animating = false; if (onDone) onDone(); }
         }
+        requestAnimationFrame(step);
       }
 
+      function scrollToIdx(index, onDone) {
+        if (!cards[index]) return;
+        const maxScroll = strip.scrollWidth - strip.clientWidth;
+        const target    = Math.min(cards[index].offsetLeft, maxScroll);
+        currentIdx      = index;
+        smoothScrollTo(target, TRANS_MS, onDone);
+      }
+
+      /* ── Fade-edge update ── */
+      function updateFades() {
+        const atStart = strip.scrollLeft <= 2;
+        const atEnd   = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 2;
+        fadeL.style.opacity = atStart ? '0' : '1';
+        fadeR.style.opacity = atEnd   ? '0' : '1';
+        if (atEnd) { btn.classList.add('at-end'); label.textContent = 'Back'; }
+        else        { btn.classList.remove('at-end'); label.textContent = 'Scroll'; }
+      }
+
+      /* ── Auto-scroll loop ── */
+      function scheduleNext() {
+        clearTimeout(autoTimer);
+        autoTimer = setTimeout(() => {
+          if (isUserBusy || animating) { scheduleNext(); return; }
+          const next = (currentIdx + 1 >= cards.length) ? 0 : currentIdx + 1;
+          scrollToIdx(next, scheduleNext);
+        }, PAUSE_MS);
+      }
+
+      /* ── Manual button ── */
       btn.addEventListener('click', () => {
+        if (animating) return;
         const atEnd = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 2;
-        strip.scrollBy({ left: atEnd ? -strip.scrollWidth : STEP, behavior: 'smooth' });
+        scrollToIdx(atEnd ? 0 : Math.min(currentIdx + 1, cards.length - 1));
+        clearTimeout(autoTimer);
+        scheduleNext();
       });
 
-      strip.addEventListener('scroll', updateState);
-      updateState();
+      strip.addEventListener('scroll', updateFades);
+      updateFades();
+
+      /* ── Pause on hover / touch ── */
+      strip.addEventListener('mouseenter', () => { isUserBusy = true; });
+      strip.addEventListener('mouseleave', () => { isUserBusy = false; });
+      strip.addEventListener('touchstart',  () => { isUserBusy = true; }, { passive: true });
+      strip.addEventListener('touchend',    () => { setTimeout(() => { isUserBusy = false; }, 2000); });
 
       /* ── Drag to scroll ── */
       let isDown = false, startX, scrollStart;
       strip.addEventListener('mousedown', e => {
         isDown = true; startX = e.pageX; scrollStart = strip.scrollLeft;
-        strip.style.scrollBehavior = 'auto';
+        isUserBusy = true;
       });
       document.addEventListener('mouseup', () => {
+        if (!isDown) return;
         isDown = false;
-        strip.style.scrollBehavior = 'smooth';
+        setTimeout(() => { isUserBusy = false; }, 1500);
       });
       document.addEventListener('mousemove', e => {
         if (!isDown) return;
         strip.scrollLeft = scrollStart - (e.pageX - startX);
       });
+
+      /* ── Kick off ── */
+      scheduleNext();
     })();
   </script>
 
