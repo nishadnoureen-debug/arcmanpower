@@ -965,11 +965,14 @@ header .container {
   background: linear-gradient(135deg, var(--primary) 0%, #1a3a52 100%);
   color: var(--text-light);
   border: 1px solid rgba(124, 162, 194, 0.3);
-  top: -2rem;
+  position: relative;
+  top: auto;
   bottom: auto;
-  right: -2rem;
-  max-width: 280px;
-  padding: 2rem 2rem 1.8rem;
+  right: auto;
+  max-width: 100%;
+  padding: 2rem 2.2rem;
+  margin-top: 2rem;
+  border-radius: 8px;
 }
 
 .welfare-quote-icon {
