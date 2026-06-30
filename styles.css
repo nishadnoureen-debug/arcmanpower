@@ -960,6 +960,68 @@ header .container {
   opacity: 0.9;
 }
 
+/* Quote Card Variant - Medical Camp Photo Section */
+.welfare-quote-card {
+  background: linear-gradient(135deg, var(--primary) 0%, #1a3a52 100%);
+  color: var(--text-light);
+  border: 1px solid rgba(124, 162, 194, 0.3);
+  top: auto;
+  bottom: -2rem;
+  right: -2rem;
+  max-width: 280px;
+  padding: 2rem 2rem 1.8rem;
+}
+
+.welfare-quote-icon {
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+  display: block;
+  opacity: 0.7;
+}
+
+.welfare-quote-card h4 {
+  color: var(--text-light);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.welfare-quote-card p {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.82rem;
+}
+
+/* Image stack with caption badge */
+.welfare-img-stack {
+  position: relative;
+}
+
+.welfare-img-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(10,22,38,0.85) 0%, transparent 100%);
+  color: rgba(255,255,255,0.9);
+  padding: 2.5rem 1.5rem 1.2rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  pointer-events: none;
+}
+
 /* Careers Portal Section & Tab System */
 .careers {
   background-color: var(--bg-light);
