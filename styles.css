@@ -965,8 +965,8 @@ header .container {
   background: linear-gradient(135deg, var(--primary) 0%, #1a3a52 100%);
   color: var(--text-light);
   border: 1px solid rgba(124, 162, 194, 0.3);
-  top: auto;
-  bottom: -2rem;
+  top: -2rem;
+  bottom: auto;
   right: -2rem;
   max-width: 280px;
   padding: 2rem 2rem 1.8rem;
