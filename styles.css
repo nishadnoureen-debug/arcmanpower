@@ -60,6 +60,32 @@ body {
   overflow-x: hidden;
 }
 
+/* Touch highlight optimization for iOS/Android */
+a, button, select, input, textarea, .indicator, .arrow, .social-circle, .tab-btn {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Navigation backdrop overlay */
+.nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 22, 38, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-smooth);
+}
+
+.nav-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Page Load Entrance Animations (Opening data like a flow) */
 @keyframes fadeInUp {
   from {
@@ -263,14 +289,18 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.95rem 0;
+  padding-top: calc(0.95rem + env(safe-area-inset-top, 0px));
+  padding-bottom: 0.95rem;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
   z-index: 100;
   transition: var(--transition-smooth);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 header.scrolled {
-  padding: 0.65rem 0;
+  padding-top: calc(0.65rem + env(safe-area-inset-top, 0px));
+  padding-bottom: 0.65rem;
   background-color: rgba(10, 17, 40, 0.85); box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -1854,14 +1884,20 @@ footer {
     right: -100%;
     width: min(300px, 80vw);
     height: 100vh;
+    height: -webkit-fill-available;
     background-color: var(--primary);
     flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: 1.5rem;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
     transition: var(--transition-smooth);
     z-index: 100;
-    padding: 3rem 2rem;
+    padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+    padding-left: calc(2rem + env(safe-area-inset-left, 0px));
+    padding-right: calc(2rem + env(safe-area-inset-right, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-menu.active {
@@ -2829,6 +2865,24 @@ footer {
   }
   100% {
     width: 100%;
+  }
+}
+
+/* Page Hero responsive overrides for subpages */
+@media (max-width: 900px) {
+  .page-hero {
+    padding: 8rem 0 4rem !important;
+  }
+  .contact-page-hero {
+    padding: 9rem 0 4.5rem !important;
+  }
+}
+@media (max-width: 600px) {
+  .page-hero {
+    padding: 7rem 0 3.5rem !important;
+  }
+  .contact-page-hero {
+    padding: 8rem 0 4rem !important;
   }
 }
 

@@ -84,12 +84,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
 
   if (mobileToggle && navMenu) {
+    // Create mobile nav backdrop overlay dynamically
+    let backdrop = document.querySelector('.nav-backdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.className = 'nav-backdrop';
+      document.body.appendChild(backdrop);
+    }
+
     mobileToggle.addEventListener('click', () => {
-      mobileToggle.classList.toggle('active');
+      const isActive = mobileToggle.classList.toggle('active');
       navMenu.classList.toggle('active');
+      backdrop.classList.toggle('active');
       
       // Stop body scrolling while mobile nav is open
-      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'initial';
+      document.body.style.overflow = isActive ? 'hidden' : 'initial';
     });
 
     // Close mobile nav on menu link click
@@ -97,8 +106,17 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         mobileToggle.classList.remove('active');
         navMenu.classList.remove('active');
+        backdrop.classList.remove('active');
         document.body.style.overflow = 'initial';
       });
+    });
+
+    // Close mobile nav on backdrop click
+    backdrop.addEventListener('click', () => {
+      mobileToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      backdrop.classList.remove('active');
+      document.body.style.overflow = 'initial';
     });
   }
 
@@ -162,9 +180,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Start slider auto play on load
+  // Start slider auto play on load and bind swipe touch controls
   if (slides.length > 0) {
     startAutoPlay();
+
+    // Touch swipe support for Hero Slider
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const heroSlider = document.querySelector('.hero');
+    
+    if (heroSlider) {
+      heroSlider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      heroSlider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+      
+      function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        const swipeThreshold = 50; // min distance in px to register swipe
+        
+        if (swipeDistance < -swipeThreshold) {
+          // Swipe left -> Next slide
+          nextSlide();
+          startAutoPlay();
+        } else if (swipeDistance > swipeThreshold) {
+          // Swipe right -> Previous slide
+          prevSlide();
+          startAutoPlay();
+        }
+      }
+    }
   }
 
 
