@@ -50,6 +50,10 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -58,6 +62,9 @@ body {
   background-color: var(--bg-light);
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Touch highlight optimization for iOS/Android */
@@ -419,8 +426,10 @@ header .container {
 
 /* Interactive Hero Slider */
 .hero {
+  /* iOS-safe viewport height fix via --vh JS variable */
   height: 100vh;
-  min-height: 700px;
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: 560px;
   background-color: var(--primary);
   position: relative;
   overflow: hidden;
@@ -428,6 +437,7 @@ header .container {
   display: flex;
   align-items: center;
   z-index: 2;
+  touch-action: pan-y;
 }
 
 .hero-slider {
@@ -475,9 +485,12 @@ header .container {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center;
-  transform: scale(1.1);
+  background-position: center top;
+  transform: scale(1.05);
   transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .hero-slide.active .hero-bg-visual {
@@ -1275,10 +1288,12 @@ header .container {
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--text-light);
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 1rem; /* 16px minimum prevents iOS auto-zoom on focus */
   border-radius: 4px;
   transition: var(--transition-fast);
   outline: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .form-control:focus {
@@ -2886,3 +2901,161 @@ footer {
   }
 }
 
+/* ============================================================
+   iOS & ANDROID COMPREHENSIVE FIXES
+   ============================================================ */
+
+/* Disable heavy animations on mobile to fix iOS rendering */
+@media (max-width: 768px) {
+  /* Hero: disable scale animation on mobile — prevents iOS blank/blank hero */
+  .hero-bg-visual {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .hero-slide.active .hero-bg-visual {
+    transform: none !important;
+  }
+
+  /* Hero content: reduce top padding on mobile to prevent cropping */
+  .hero-content-wrapper {
+    padding-top: calc(var(--header-h, 5rem) + 2rem);
+    padding-bottom: 6rem;
+    width: 92%;
+  }
+
+  /* Tighten hero text on phones */
+  .hero h1 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.25;
+    max-width: 100%;
+  }
+
+  .hero p {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  /* Slider nav: prevent overflow at bottom */
+  .slider-nav {
+    bottom: 1.5rem;
+    left: 5%;
+    right: 5%;
+  }
+
+  /* Fix hero min-height for small screens */
+  .hero {
+    min-height: calc(var(--vh, 1vh) * 100);
+    min-height: -webkit-fill-available;
+  }
+
+  /* Leadership grid: single column on mobile */
+  .leadership-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+  }
+
+  .leadership-img-box {
+    height: 300px;
+  }
+
+  /* Ensure no element causes horizontal scroll */
+  section, .container, header, footer {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Fix fixed position overlays for iOS notch */
+  .page-transition-overlay,
+  .modal-overlay {
+    height: 100%;
+    height: -webkit-fill-available;
+  }
+
+  /* Ensure mobile toggle is always visible & large enough to tap */
+  .mobile-toggle {
+    display: block;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hero-content-wrapper {
+    padding-top: calc(var(--header-h, 4rem) + 1.5rem);
+    padding-bottom: 5rem;
+  }
+
+  /* Prevent hero content from getting clipped by slider nav */
+  .hero p {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-buttons .btn-premium {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Leadership on very small screens */
+  .leadership-grid {
+    max-width: 100%;
+    gap: 2rem;
+  }
+
+  .leadership-img-box {
+    height: 280px;
+  }
+
+  .leadership-info {
+    padding: 1.5rem;
+  }
+}
+
+/* iOS Safari specific — prevent rubber-band scroll artifacts */
+@supports (-webkit-overflow-scrolling: touch) {
+  .hero {
+    /* Force composite layer on iOS for proper rendering */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .hero-bg-visual {
+    /* Disable scale animation entirely on iOS Safari to prevent blank hero bug */
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .nav-menu {
+    /* Ensure nav drawer scrolls on iOS */
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+  }
+}
+
+/* Modern browsers: use dynamic viewport height */
+@supports (height: 100dvh) {
+  .hero {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+}
+
+/* Fix: page-transition-overlay height on iOS */
+.page-transition-overlay {
+  height: 100%;
+  height: -webkit-fill-available;
+  min-height: 100vh;
+}

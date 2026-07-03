@@ -4,6 +4,23 @@
  * Fully customized Vanilla Javascript for premium micro-interactions.
  */
 
+// === iOS Viewport Height Fix ===
+// iOS Safari treats 100vh as the full screen height including the browser toolbar,
+// causing hero sections to appear cut off. This sets a --vh CSS variable that equals
+// 1% of the actual visible window height, so we can use calc(var(--vh) * 100) instead.
+(function setVH() {
+  const updateVH = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    document.documentElement.style.setProperty('--header-h', '5rem');
+  };
+  updateVH();
+  window.addEventListener('resize', updateVH);
+  window.addEventListener('orientationchange', () => {
+    setTimeout(updateVH, 150); // Delay to allow orientation to finalize
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   
   // --- PAGE ENTRANCE OVERLAY (shown only on load / reload, not on internal navigation) ---
