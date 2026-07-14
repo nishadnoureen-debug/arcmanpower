@@ -3063,7 +3063,7 @@ footer {
 /* Floating WhatsApp Button */
 .whatsapp-float {
   position: fixed;
-  bottom: 24px;
+  bottom: 90px;
   right: 24px;
   width: 56px;
   height: 56px;
@@ -3096,7 +3096,7 @@ footer {
 /* Mobile adjustments */
 @media (max-width: 480px) {
   .whatsapp-float {
-    bottom: 20px;
+    bottom: 86px;
     right: 20px;
     width: 50px;
     height: 50px;
@@ -3105,4 +3105,57 @@ footer {
     width: 26px;
     height: 26px;
   }
+}
+
+/* Footer Phone CTA — Prominent standalone contact card */
+.footer-phone-cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(56, 108, 152, 0.25) 0%, rgba(56, 108, 152, 0.08) 100%);
+  border: 1px solid rgba(56, 108, 152, 0.4);
+  border-radius: 10px;
+  padding: 1rem 1.3rem;
+  margin-bottom: 1.6rem;
+  text-decoration: none;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-phone-cta:hover {
+  background: linear-gradient(135deg, rgba(56, 108, 152, 0.38) 0%, rgba(56, 108, 152, 0.18) 100%);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.footer-phone-cta-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.footer-phone-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.footer-phone-cta-label {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-phone-cta-number {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
