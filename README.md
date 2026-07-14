@@ -1,6 +1,6 @@
-# ArcManPower
+# ArcGlobal
 
-A lightweight web page that showcases the **ArcManPower** branding with a modern, responsive design.
+A lightweight web page that showcases the **ArcGlobal** branding with a modern, responsive design.
 
 ## Features
 - Custom logo (logo.png) displayed in header and footer

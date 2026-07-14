@@ -1,5 +1,5 @@
 /**
- * Arc Manpower (arcmanpower.ae)
+ * Arc Global (arcmanpower.ae)
  * Primary Interactive Engine
  * Fully customized Vanilla Javascript for premium micro-interactions.
  */
@@ -488,8 +488,8 @@ document.addEventListener('DOMContentLoaded', () => {
       date: "June 15, 2026",
       img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80",
       content: `<p>With the UAE's Vision 2031 mega-projects accelerating at an unprecedented pace, the demand for skilled and certified construction labor has experienced an extraordinary surge of over 35% in the last 18 months. Developments like the expansion of Al Maktoum International Airport, Palm Jebel Ali, and massive new residential master communities in Dubai and Abu Dhabi are creating high competition for reliable contracting partners.</p>
-                <p>For project managers and HR leaders, this landscape requires a strategic shift from traditional direct hiring to partnering with certified, ISO-level manpower outsourcing firms. Managing housing logistics, daily air-conditioned transport, medical screenings, and Ministry of Human Resources & Emiratisation (MoHRE) compliance is increasingly complex. Partnering with a specialized provider like Arc Manpower guarantees that your labor supply is fully compliant, immediately deployable, and trained in high-level industrial safety standards.</p>
-                <p>Furthermore, the modern construction landscape demands advanced skillsets. Operatives must be familiar with safety standards (HSE), scaffolding regulations, and MEP systems. At Arc Manpower, we address this demand through our intensive safety and trades-training inductions, ensuring every worker deployed onto your site adds value and safeguards the project timeline from day one.</p>`
+                <p>For project managers and HR leaders, this landscape requires a strategic shift from traditional direct hiring to partnering with certified, ISO-level manpower outsourcing firms. Managing housing logistics, daily air-conditioned transport, medical screenings, and Ministry of Human Resources & Emiratisation (MoHRE) compliance is increasingly complex. Partnering with a specialized provider like Arc Global guarantees that your labor supply is fully compliant, immediately deployable, and trained in high-level industrial safety standards.</p>
+                <p>Furthermore, the modern construction landscape demands advanced skillsets. Operatives must be familiar with safety standards (HSE), scaffolding regulations, and MEP systems. At Arc Global, we address this demand through our intensive safety and trades-training inductions, ensuring every worker deployed onto your site adds value and safeguards the project timeline from day one.</p>`
     },
     "1": {
       title: "Understanding the New UAE Labour Law Amendments: What Employers Must Know in 2026",
@@ -498,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
       img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
       content: `<p>The Ministry of Human Resources and Emiratisation (MoHRE) has introduced several critical amendments to the UAE Federal Decree-Law on Labour Relations. These revisions are designed to align the UAE work environment with global standards, introducing stronger compliance measures, flexible working contracts, and expanded protections for both employers and employees.</p>
                 <p>Key changes include mandatory adherence to the Wage Protection System (WPS) with stricter penalties for delayed salaries, new guidelines on non-compete clauses, and simplified contract templates for partial and temporary employment models. Employers must ensure their HR policies, contract structures, and payroll pipelines are fully audited and updated to avoid substantial compliance fines.</p>
-                <p>Arc Manpower maintains a dedicated legal compliance desk that monitors all MoHRE directives. We absorb all administrative burden and compliance liabilities for our outsourced personnel, ensuring 100% adherence to all regulatory adjustments. By partnering with us, you safeguard your business from compliance risks and legal overheads.</p>`
+                <p>Arc Global maintains a dedicated legal compliance desk that monitors all MoHRE directives. We absorb all administrative burden and compliance liabilities for our outsourced personnel, ensuring 100% adherence to all regulatory adjustments. By partnering with us, you safeguard your business from compliance risks and legal overheads.</p>`
     },
     "2": {
       title: "The Surge in MEP Workforce Demand Across Gulf's Major Giga-Projects",
@@ -506,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
       date: "May 10, 2026",
       img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
       content: `<p>As mega giga-projects like Saudi Arabia's NEOM, Dubai Urban Plan 2040, and Abu Dhabi's massive solar infrastructures push boundaries, mechanical, electrical, and plumbing (MEP) trades have transitioned into the highest-demand workforce sectors in the GCC. High-density buildings, green data centers, and advanced manufacturing plants require certified HVAC technicians, duct-men, and industrial electricians with deep technical expertise.</p>
-                <p>Finding local talent for these specialized roles is increasingly challenging. Standard recruiting channels often fail to verify technical competence and background checks. This is why Arc Manpower utilizes established international trade centers to source and rigorously test MEP workers on live systems before deployment.</p>
+                <p>Finding local talent for these specialized roles is increasingly challenging. Standard recruiting channels often fail to verify technical competence and background checks. This is why Arc Global utilizes established international trade centers to source and rigorously test MEP workers on live systems before deployment.</p>
                 <p>Every outsourced electrician, plumber, and technician in our roster possesses recognized industry credentials and has successfully cleared safety screenings. This guarantees a seamless integration into your project's engineering workflow, keeping your complex mechanical systems on track and built to exact specifications.</p>`
     },
     "3": {
@@ -515,8 +515,8 @@ document.addEventListener('DOMContentLoaded', () => {
       date: "April 22, 2026",
       img: "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&w=600&q=80",
       content: `<p>Historically, worker accommodations and wellness programs were viewed purely as compliance costs. Today, empirical studies and project logs prove that premium living conditions, clean dining options, and structured mental health support directly boost worker output and project productivity by up to 40% while reducing site absenteeism and safety incidents.</p>
-                <p>Arc Manpower has been at the forefront of this shift, managing modern accommodations in Jebel Ali and Sonapur equipped with Wi-Fi, fitness centers, multi-cultural catering services, and around-the-clock medical clinics. We recognize that a comfortable, well-fed, and healthy employee performs significantly better on high-stress industrial work sites.</p>
-                <p>When you hire from Arc Manpower, you are deploying a workforce that is supported by dedicated welfare officers. The resulting morale and health translate into superior work quality, fewer project delays, and a safer, more efficient site environment for your company.</p>`
+                <p>Arc Global has been at the forefront of this shift, managing modern accommodations in Jebel Ali and Sonapur equipped with Wi-Fi, fitness centers, multi-cultural catering services, and around-the-clock medical clinics. We recognize that a comfortable, well-fed, and healthy employee performs significantly better on high-stress industrial work sites.</p>
+                <p>When you hire from Arc Global, you are deploying a workforce that is supported by dedicated welfare officers. The resulting morale and health translate into superior work quality, fewer project delays, and a safer, more efficient site environment for your company.</p>`
     },
     "4": {
       title: "E-Commerce Boom Drives Surge in Warehouse & Logistics Workforce Demand Across Dubai",
@@ -525,7 +525,7 @@ document.addEventListener('DOMContentLoaded', () => {
       img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
       content: `<p>The explosive expansion of e-commerce, third-party logistics (3PL), and global supply chains in Dubai has created an intense demand for reliable warehouse operatives, forklift operators, packagers, and logistics drivers. Fulfilment hubs in Dubai South, JAFZA, and DAFZA require flexible staffing models that scale rapidly during seasonal peaks and retail events.</p>
                 <p>Managing fluctuating demand requires an outsourcing partner that can supply certified warehouse operators at short notice. Forklift operators and heavy-machinery drivers must also hold valid UAE licenses and have cleared strict equipment handling tests.</p>
-                <p>Arc Manpower maintains a pool of pre-vetted warehouse personnel who are fully trained in modern inventory management, safety protocols, and packaging standards. We offer scalable contract durations, enabling logistics and retail managers to align workforce capacity with real-time package volumes without incurring fixed overheads.</p>`
+                <p>Arc Global maintains a pool of pre-vetted warehouse personnel who are fully trained in modern inventory management, safety protocols, and packaging standards. We offer scalable contract durations, enabling logistics and retail managers to align workforce capacity with real-time package volumes without incurring fixed overheads.</p>`
     },
     "5": {
       title: "Outsourcing vs. Direct Hiring in UAE: Which Model Saves More for Your Business?",
@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
       img: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=600&q=80",
       content: `<p>For businesses operating in labor-intensive sectors like facilities management, construction, and hospitality in the UAE, the cost of staffing is the largest line item on the balance sheet. In this article, we analyze the hidden costs of direct hiring—including visa quotas, bank guarantees, health insurance, annual flights, end-of-service gratuities, and housing logistics—against the structured, single-invoice model of managed outsourcing.</p>
                 <p>When accounting for recruitment cycle delays, visa processing overhead, accommodation capital expenditure, and HR administrative salaries, outsourcing typically yields a 15% to 25% direct cost reduction. More importantly, outsourcing converts fixed payroll costs into variable, project-based expenses, giving businesses the agility to scale down during market contractions.</p>
-                <p>Arc Manpower handles all facets of visa outsourcing, WPS management, and daily logistics. Our clients receive one simple monthly invoice per worker, leaving their internal HR teams free to focus on core operations and business development.</p>`
+                <p>Arc Global handles all facets of visa outsourcing, WPS management, and daily logistics. Our clients receive one simple monthly invoice per worker, leaving their internal HR teams free to focus on core operations and business development.</p>`
     },
     "6": {
       title: "Staffing for Dubai's World-Class Hospitality Sector: Quality Standards That Cannot Be Compromised",
@@ -542,7 +542,7 @@ document.addEventListener('DOMContentLoaded', () => {
       date: "March 3, 2026",
       img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
       content: `<p>As Dubai continues to lead global tourism rankings, hospitality operators from five-star resorts to boutique cafes face extreme standards of customer service and cleanliness. Front-of-house staff, housekeeping, kitchen stewards, and banquet servers are the face of your brand, and any compromise in training or presentation transiently reflects in customer reviews.</p>
-                <p>Arc Manpower offers specialized hospitality staffing solutions, placing highly-trained stewards, cleaning teams, and service staff in premier venues across the UAE. We place a massive emphasis on grooming, English language proficiency, and hospitality etiquette during our recruitment process.</p>
+                <p>Arc Global offers specialized hospitality staffing solutions, placing highly-trained stewards, cleaning teams, and service staff in premier venues across the UAE. We place a massive emphasis on grooming, English language proficiency, and hospitality etiquette during our recruitment process.</p>
                 <p>Our hospitality personnel undergo rigorous training sessions focusing on sanitization standards, guest interactions, and service pacing. We provide continuous support and quality audits, ensuring our team members always match and exceed the world-class reputation of your brand.</p>`
     }
   };
