@@ -609,4 +609,101 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- REQUEST MANPOWER MODAL SYSTEM ---
+  const requestModalOverlay = document.getElementById('requestManpowerModalOverlay');
+  const closeRequestModalBtn = document.getElementById('closeRequestModalBtn');
+  const openRequestModalBtns = document.querySelectorAll('.open-request-modal');
+  const requestManpowerForm = document.getElementById('requestManpowerForm');
+  const requestSuccessOverlay = document.getElementById('requestSuccessOverlay');
+  const requestSubmitBtn = document.getElementById('requestSubmitBtn');
+
+  function openRequestModal(e) {
+    if (e) e.preventDefault();
+    if (requestModalOverlay) {
+      requestModalOverlay.classList.add('active');
+    }
+  }
+
+  function closeRequestModal() {
+    if (requestModalOverlay) {
+      requestModalOverlay.classList.remove('active');
+    }
+  }
+
+  if (openRequestModalBtns) {
+    openRequestModalBtns.forEach(btn => {
+      btn.addEventListener('click', openRequestModal);
+    });
+  }
+
+  if (closeRequestModalBtn) {
+    closeRequestModalBtn.addEventListener('click', closeRequestModal);
+  }
+
+  if (requestModalOverlay) {
+    requestModalOverlay.addEventListener('click', (e) => {
+      if (e.target === requestModalOverlay) {
+        closeRequestModal();
+      }
+    });
+  }
+
+  // Close request modal on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && requestModalOverlay && requestModalOverlay.classList.contains('active')) {
+      closeRequestModal();
+    }
+  });
+
+  if (requestManpowerForm) {
+    requestManpowerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Perform basic validation
+      const phoneInput = document.getElementById('requestPhone').value;
+      const emailInput = document.getElementById('requestEmail').value;
+
+      const phoneRegex = /^\+?[0-9\s-]{7,15}$/;
+      if (!phoneRegex.test(phoneInput)) {
+        showToast('Please enter a valid UAE or international contact number.', 'error');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput)) {
+        showToast('Please verify your business email address structure.', 'error');
+        return;
+      }
+
+      // Loader
+      if (requestSubmitBtn) {
+        requestSubmitBtn.classList.add('loading');
+        requestSubmitBtn.disabled = true;
+      }
+
+      // Simulate API submit latency
+      setTimeout(() => {
+        if (requestSubmitBtn) {
+          requestSubmitBtn.classList.remove('loading');
+          requestSubmitBtn.disabled = false;
+        }
+
+        if (requestSuccessOverlay) {
+          requestSuccessOverlay.classList.add('active');
+        }
+        showToast('Staffing request successfully submitted!', 'success');
+
+        // Reset and close modal after a delay
+        setTimeout(() => {
+          if (requestManpowerForm) requestManpowerForm.reset();
+          if (requestSuccessOverlay) {
+            requestSuccessOverlay.classList.remove('active');
+          }
+          closeRequestModal();
+        }, 5000);
+
+      }, 1800);
+    });
+  }
+
 });

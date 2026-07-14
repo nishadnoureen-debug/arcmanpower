@@ -3059,3 +3059,50 @@ footer {
   height: -webkit-fill-available;
   min-height: 100vh;
 }
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background-color: #20ba5a;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+  .whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+  }
+}

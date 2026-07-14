@@ -537,7 +537,7 @@
         <a href="careers.html" class="nav-link">Careers</a>
         <a href="news.html" class="nav-link">News &amp; Media</a>
         <a href="contact.html" class="nav-link active">Contact</a>
-        <a href="#contact-form" class="btn-premium btn-primary"
+        <a href="javascript:void(0)" class="btn-premium btn-primary open-request-modal"
           style="padding: 0.6rem 1.4rem; font-size: 0.85rem; margin-left: 0.5rem;">Request Manpower</a>
       </nav>
 
@@ -610,6 +610,10 @@
           <h3>Dubai, UAE</h3>
           <p>Damas Tower, 14th Floor, Office 1403<br>Al Maktoum Road, Deira, Dubai</p>
           <div class="office-card-contact">
+            <a href="tel:+97145546652" style="margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              +971 4 554 6652
+            </a>
             <a href="mailto:hr@arcmanpower.com">
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               hr@arcmanpower.com
@@ -686,7 +690,8 @@
               </div>
               <div class="contact-detail-text">
                 <h4>Dubai Office</h4>
-                <p>Damas Tower, 14th Floor, Office 1403, Al Maktoum Road, Deira, Dubai</p>
+                <p>Damas Tower, 14th Floor, Office 1403, Al Maktoum Road, Deira, Dubai<br>
+                  Tel: <a href="tel:+97145546652" style="color: inherit; text-decoration: none;">+971 4 554 6652</a></p>
               </div>
             </div>
 
@@ -875,7 +880,8 @@
               </div>
               <div class="footer-contact-text">
                 <h5>Dubai Office</h5>
-                <p>Damas Tower, 14th Floor, Office 1403, Al Maktoum Road, Deira, Dubai</p>
+                <p>Damas Tower, 14th Floor, Office 1403, Al Maktoum Road, Deira, Dubai<br>
+                  Tel: <a href="tel:+97145546652" style="color: inherit; text-decoration: none;">+971 4 554 6652</a></p>
               </div>
             </div>
 
@@ -921,6 +927,79 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/97145546652" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.988 3.3 1.488 4.954 1.49 5.433-.001 9.85-4.417 9.853-9.852.002-2.633-1.016-5.105-2.868-6.96C16.678 3.981 14.198 2.99 11.565 2.99c-5.438 0-9.855 4.417-9.858 9.853-.001 1.937.512 3.823 1.485 5.49L2.176 22.1l4.471-1.747-.001-.2zM17.52 14.33c-.279-.14-1.651-.815-1.907-.907-.256-.092-.442-.14-.627.14-.185.279-.717.907-.88 1.092-.163.186-.326.208-.605.068-.279-.14-1.18-.435-2.247-1.387-.83-.74-1.39-1.653-1.553-1.932-.163-.28-.017-.43.122-.569.124-.125.279-.326.419-.489.14-.163.186-.279.279-.465.093-.186.046-.35-.023-.49-.069-.14-.627-1.512-.86-2.07-.226-.547-.454-.472-.627-.48-.163-.008-.348-.01-.534-.01-.163 0-.488.07-.743.348-.256.279-.977.954-.977 2.325s1.001 2.697 1.14 2.884c.14.186 1.97 3.007 4.773 4.218.666.288 1.187.46 1.593.589.67.213 1.28.183 1.761.111.537-.08 1.651-.675 1.884-1.326.232-.65 0-1.209-.163-1.326z"/>
+    </svg>
+  </a>
+
+  <!-- MODAL WINDOW COMPONENT (Request Manpower / Discussions & Quotes) -->
+  <div class="modal-overlay" id="requestManpowerModalOverlay">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3>Discussions &amp; Quotes</h3>
+        <button class="modal-close-btn" id="closeRequestModalBtn" aria-label="Close Request Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="requestManpowerForm">
+          <div class="form-group">
+            <select class="form-control" id="requestSolution" required>
+              <option value="" disabled selected></option>
+              <option value="civil">Civil &amp; Construction Force</option>
+              <option value="mep">MEP / Technical Skilled Force</option>
+              <option value="oil-gas">Oil &amp; Gas Welder/Riggers</option>
+              <option value="cleaning">Building Maintenance &amp; Cleaning</option>
+              <option value="hospitality">Hospitality &amp; Kitchen Crews</option>
+              <option value="logistics">Warehouse &amp; Driver Logistics</option>
+            </select>
+            <label for="requestSolution">Select Solution Needed</label>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" class="form-control" id="requestName" placeholder=" " required />
+              <label for="requestName">Full Name</label>
+            </div>
+            <div class="form-group">
+              <input type="tel" class="form-control" id="requestPhone" placeholder=" " required />
+              <label for="requestPhone">Phone Number</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="form-control" id="requestEmail" placeholder=" " required />
+            <label for="requestEmail">Email Address</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="requestCompany" placeholder=" " />
+            <label for="requestCompany">Company / Organization Name (Optional)</label>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control" id="requestDesc" placeholder=" " required></textarea>
+            <label for="requestDesc">Outline Workers Count &amp; Skills Grade Required...</label>
+          </div>
+
+          <button type="submit" class="form-submit-btn" id="requestSubmitBtn">Let's Discuss</button>
+        </form>
+
+        <!-- Success Visual Shield Overlay -->
+        <div class="form-success-overlay" id="requestSuccessOverlay">
+          <div class="success-icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h3>Request Registered</h3>
+          <p>Your staffing request has been routed to our corporate relations panel. An advisor will contact you within 2 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 
